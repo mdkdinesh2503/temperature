@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title name  -->
+    <title>M D K | T E M P - C O N</title>
+
+    <!-- Title logo link -->
+    <link rel="shortcut icon" sizes="32x32" href="./fav.ico" />
+
+    <!-- font awesome style sheet link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Header section starts -->
+    <header>
+        <i class="fas fa-thermometer-three-quarters"></i>
+        <h2 class="topic"> T E M P E R A T U R E - C O N V E R T E R</h2>
+    </header>
+    <!-- Header section ends -->
+
+    <!-- Temperature section starts  -->
+    <div class="temp">
+        <div class="temp-content">
+            <div class="temp-contents">
+                <label>Celsius</label>
+                <input type="number" value="0" id="Celsius">
+            </div>
+            <div class="temp-contents">
+                <label>Fahrenheit</label>
+                <input type="number" value="32" id="Fahrenheit">
+            </div>
+            <div class="temp-contents">
+                <label>Kelvin</label>
+                <input type="number" value="273.15" id="Kelvin">
+            </div>
+        </div>
+    </div>
+    <!-- Temperature section ends -->
+
+</body>
+
+<style>
+    /*----------------------------------------------------------------------
+                            OVERALL STYLE STARTS HERE                         
+     ----------------------------------------------------------------------*/
+
+    :root {
+        --white: #fff;
+        --brown: #414141;
+        --light-brown: #bababa;
+        --border: .1rem solid var(--brown);
+        --text-shadow: .1rem .1rem .1rem var(--brown);
+        --box-shadow: 0px 2px 20px 2px var(--white);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    html {
+        min-width: 100%;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    body {
+        background: var(--light-brown);
+    }
+
+    /*----------------------------------------------------------------------
+                            HEADER SECTION STARTS HERE                         
+     ----------------------------------------------------------------------*/
+
+    header {
+        position: fixed;
+        padding: .5rem 9%;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: var(--border);
+    }
+
+    header i {
+        font-size: 3rem;
+        margin-right: 1rem;
+        text-shadow: var(--text-shadow);
+    }
+
+    header .topic {
+        font-size: 2rem;
+        margin: 0 auto;
+        width: fit-content;
+        position: relative;
+        margin: 1rem;
+        text-shadow: var(--text-shadow);
+    }
+
+    /*----------------------------------------------------------------------
+                            TEMPERATURE SECTION STARTS HERE                         
+     ----------------------------------------------------------------------*/
+
+    .temp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 60vh;
+        margin: 8rem 9%;
+    }
+
+    .temp .temp-content {
+        background: var(--white);
+        border: var(--border);
+        padding: 1rem;
+        box-shadow: var(--box-shadow);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .temp .temp-content .temp-contents {
+        background: var(--light-brown);
+        border: var(--border);
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .temp .temp-content .temp-contents label {
+        font-size: 1.6rem;
+        font-family: monospace;
+        text-shadow: var(--text-shadow);
+        letter-spacing: .1rem;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+    .temp .temp-content .temp-contents input {
+        font-size: 1.6rem;
+        text-align: center;
+        padding: .5rem;
+        border-radius: 5rem;
+        outline: none;
+        border: var(--border);
+        color: var(--brown);
+    }
+
+    @media (max-width: 1000px) {
+        header i {
+            font-size: 2.5rem;
+        }
+
+        header .topic {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 740px) {
+        header i {
+            font-size: 2rem;
+            margin-right: .2rem;
+        }
+
+        header .topic {
+            font-size: 1rem;
+        }
+
+        .temp .temp-content .temp-contents {
+            padding: .5rem;
+        }
+
+        .temp .temp-content .temp-contents label {
+            font-size: 1.3rem;
+            padding-bottom: .5rem;
+        }
+
+        .temp .temp-content .temp-contents input {
+            font-size: 1.3rem;
+            padding: .3rem;
+            border-radius: 5rem;
+            width: 70%;
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 500px) {
+
+        header .topic {
+            display: none;
+        }
+
+        header i {
+            font-size: 3rem;
+        }
+
+        .temp .temp-content .temp-contents {
+            padding: .2rem;
+        }
+
+        .temp .temp-content .temp-contents label {
+            font-size: 1rem;
+            padding-bottom: .5rem;
+        }
+
+        .temp .temp-content .temp-contents input {
+            font-size: 1rem;
+            padding: .4rem;
+            border-radius: 5rem;
+            width: 70%;
+            margin: 0 auto;
+        }
+    }
+</style>
+
+<script>
+    const celsius = document.getElementById('Celsius');
+    const fahrenheit = document.getElementById('Fahrenheit');
+    const kelvin = document.getElementById('Kelvin');
+
+    celsius.addEventListener('input', function () {
+        if (this.value != "") {
+            let c = this.value;
+            let f = (c * 9 / 5) + 32;
+            let k = +c + 273.15;
+            if (!Number.isInteger(f)) {
+                f = f.toFixed(3);
+            }
+            if (!Number.isInteger(k)) {
+                k = k.toFixed(3);
+            }
+            fahrenheit.value = f;
+            kelvin.value = k;
+        } else {
+            fahrenheit.value = "";
+            kelvin.value = "";
+        }
+    });
+
+    fahrenheit.addEventListener('input', function () {
+        if (this.value != "") {
+            let f = this.value;
+            let c = (f - 32) * 5 / 9;
+            let k = c + 273.15;
+            if (!Number.isInteger(c)) {
+                c = c.toFixed(3);
+            }
+            if (!Number.isInteger(k)) {
+                k = k.toFixed(3);
+            }
+            celsius.value = c;
+            kelvin.value = k;
+        } else {
+            celsius.value = "";
+            kelvin.value = "";
+        }
+    });
+
+    kelvin.addEventListener('input', function () {
+        if (this.value != "") {
+            let k = this.value;
+            let c = k - 273.15;
+            let f = (k - 273.15) * 9 / 5 + 32;
+            if (!Number.isInteger(c)) {
+                c = c.toFixed(3);
+            }
+            if (!Number.isInteger(f)) {
+                f = f.toFixed(3);
+            }
+            celsius.value = c;
+            fahrenheit.value = f;
+        } else {
+            celsius.value = "";
+            fahrenheit.value = "";
+        }
+    });
+</script>
+
+</html>
