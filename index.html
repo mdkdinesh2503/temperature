@@ -290,6 +290,15 @@
             fahrenheit.value = "";
         }
     });
+
+    /*--------- ctrl button lock Starts ---------- */
+    document.onkeydown = function (e) {
+        if (e.ctrlKey) {
+            return false;
+        }
+    };
+
+    document.addEventListener('contextmenu', event => event.preventDefault());
 </script>
 
 </html>
